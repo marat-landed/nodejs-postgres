@@ -1,0 +1,24 @@
+{
+  "name": "openshift-postgres",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app-local.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marat-landed/nodejs-postgres.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marat-landed/nodejs-postgres/issues"
+  },
+  "homepage": "https://github.com/marat-landed/nodejs-postgres#readme"
+}
