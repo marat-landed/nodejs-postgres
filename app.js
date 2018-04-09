@@ -26,6 +26,7 @@ if (process.env.POSTGRESQL_USER) {
   var postgresqlPassword = process.env["POSTGRESQL_PASSWORD"];
 
   var connectString = "postgresql://" + postgresqlUser + ":" + postgresqlPassword + "@" + postgresqlServiceHost + "/" + postgresqlDatabase;
+  var connectString = "postgresql://" + postgresqlUser + ":" + postgresqlPassword + "@" + postgresqlServiceHost + ":" + postgresqlServicePort;	
   // const connectString = postgresql://user:password@host:port
   // const connectString = postgres://user:password@hostname/database	
 } else {
