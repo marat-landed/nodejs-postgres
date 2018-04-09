@@ -12,12 +12,31 @@ const connectString = {
   database: 'postgres'
 };
 */
-const connectString = {
-  user: process.env.POSTGRESQL_USER,
-  password: process.env.POSTGRESQL_PASSWORD,	
-  database: process.env.POSTGRESQL_DATABASE
-};
+console.log(process.env.POSTGRESQL_USER,process.env.POSTGRESQL_PASSWORD,process.env.POSTGRESQL_DATABASE);
+if (process.env.POSTGRESQL_USER) {
+  var connectString = {
+    user: process.env.POSTGRESQL_USER,
+    password: process.env.POSTGRESQL_PASSWORD,	
+    database: process.env.POSTGRESQL_DATABASE
+  }
+  var postgresqlServiceHost = process.env["POSTGRESQL_SERVICE_HOST"];
+  var postgresqlServicePort = process.env["POSTGRESQL_SERVICE_PORT"];
+  var postgresqlDatabase = process.env["POSTGRESQL_DATABASE"];
+  var postgresqlUser = process.env["POSTGRESQL_USER"];
+  var postgresqlPassword = process.env["POSTGRESQL_PASSWORD"];
 
+  var connectString = "postgresql://" + postgresqlUser + ":" + postgresqlPassword + "@" + postgresqlServiceHost + "/" + postgresqlDatabase;
+  // const connectString = postgresql://user:password@host:port
+  // const connectString = postgres://user:password@hostname/database	
+} else {
+  var connectString = {
+    user: 'postgres',
+    password: 'postgres',	
+    database: 'postgres'
+  };	
+}	
+
+console.log(connectString);
 
 /*
 const connectString = {
