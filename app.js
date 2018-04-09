@@ -5,17 +5,37 @@ const pg = require('pg');
 const { Client, Query } = require('pg');
 
 //const connectString = process.env.DATABASE_URL || 'postgres://localhost:5432/todo';
+/*
 const connectString = {
   user: 'postgres',
   password: 'postgres',	
   database: 'postgres'
 };
+*/
+const connectString = {
+  user: POSTGRESQL_USER,
+  password: POSTGRESQL_PASSWORD,	
+  database: POSTGRESQL_DATABASE
+};
+
 
 /*
 const connectString = {
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL, // Heroku DATABASE_URL = OpenShift OPENSHIFT_POSTGRESQL_DB_URL это v.2, а не v.3
   ssl: true
 };
+*/
+/*
+Документация OpenShift показывает, что строка соединения PostgreSQL должна выглядеть так:
+	const connectString = postgresql://user:password@host:port
+Однако документация DataMapper показывает, что строка подключения PostgreSQL должна выглядеть так:
+	const connectString = postgres://user:password@hostname/database
+	
+POSTGRESQL_USER
+POSTGRESQL_PASSWORD
+POSTGRESQL_DATABASE
+
+mongoURL = mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 */
 app.get('/',function(req,res){
   res.sendFile(__dirname + '/index.html');
