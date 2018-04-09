@@ -13,9 +13,9 @@ const connectString = {
 };
 */
 const connectString = {
-  user: POSTGRESQL_USER,
-  password: POSTGRESQL_PASSWORD,	
-  database: POSTGRESQL_DATABASE
+  user: process.env.POSTGRESQL_USER,
+  password: process.env.POSTGRESQL_PASSWORD,	
+  database: process.env.POSTGRESQL_DATABASE
 };
 
 
