@@ -29,6 +29,38 @@ if (process.env.POSTGRESQL_USER) {
   var connectString = "postgresql://" + postgresqlUser + ":" + postgresqlPassword + "@" + postgresqlServiceHost + ":" + postgresqlServicePort;	
   // const connectString = postgresql://user:password@host:port
   // const connectString = postgres://user:password@hostname/database	
+	
+  /*	
+  //mongodb configuration
+  var mongoHost = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost';
+  var mongoPort = process.env.OPENSHIFT_MONGODB_DB_PORT || 27017;
+  var mongoUser = ''; //mongodb username
+  var mongoPass = ''; //mongodb password
+  var mongoDb   = ''; //mongodb database name
+
+  //mysql configuration
+  var mysqlHost = process.env.OPENSHIFT_MYSQL_DB_HOST || 'localhost';
+  var mysqlPort = process.env.OPENSHIFT_MYSQL_DB_PORT || 3306;
+  var mysqlUser = ''; //mysql username
+  var mysqlPass = ''; //mysql password
+  var mysqlDb   = ''; //mysql database name
+  */
+
+  //postgresql configuration
+  var postgresqlHost = process.env.OPENSHIFT_POSTGRESQL_DB_HOST || 'localhost'; 
+  var postgresqlPort = process.env.OPENSHIFT_POSTGRESQL_DB_PORT || 5432;
+  var postgresqlUser = process.env["POSTGRESQL_USER"]; //mysql username
+  var postgresqlPass = process.env["POSTGRESQL_PASSWORD"]; //mysql password
+  var postgresqlDb   = process.env["POSTGRESQL_DATABASE"]; //mysql database name	
+  // Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT/
+  // echo $OPENSHIFT_POSTGRESQL_DB_PORT ----> 5432	
+  // Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT	
+	
+  //connection strings
+  //var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + mongoHost + ':' + mongoPort + '/' + mongoDb;
+  //var mysqlString = 'mysql://' + mysqlUser + ':' + mysqlPass + '@' + mysqlHost + ':' + mysqlPort + '/' + mysqlDb;
+  var connectString = 'postgresql://' + postgresqlUser + ':' + postgresqlPass + '@' + postgresqlHost + ':' + postgresqlPort + '/' + postgresqlDb;	
+	
 } else {
   var connectString = {
     user: 'postgres',
@@ -36,6 +68,8 @@ if (process.env.POSTGRESQL_USER) {
     database: 'postgres'
   };	
 }	
+
+
 
 console.log(connectString);
 
