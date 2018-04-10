@@ -18,7 +18,6 @@ var connectString = {
 
   var connectString = "postgresql://" + postgresqlUser + ":" + postgresqlPassword + "@" + postgresqlServiceHost + "/" + postgresqlDatabase;
   var connectString = "postgresql://" + postgresqlUser + ":" + postgresqlPassword + "@" + postgresqlServiceHost + ":" + postgresqlServicePort;
-
 */
 
   //postgresql configuration
