@@ -34,8 +34,24 @@ var connectString = {
   //connection strings
   //var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + mongoHost + ':' + mongoPort + '/' + mongoDb;
   //var mysqlString = 'mysql://' + mysqlUser + ':' + mysqlPass + '@' + mysqlHost + ':' + mysqlPort + '/' + mysqlDb;
+  /*
+  connection: {
+    host     : process.env.OPENSHIFT_PG_HOST,
+    port:    : process.env.OPENSHIFT_PG_PORT,
+    user     : process.env.OPENSHIFT_PG_USERNAME',
+    password : process.env.OPENSHIFT_PG_PASSWORD,
+    database : process.env.OPENSHIFT_PG_DATABASE
+  }
+  */
   var connectString = 'postgresql://' + postgresqlUser + ':' + postgresqlPass + '@' + postgresqlHost + ':' + postgresqlPort + '/' + postgresqlDb;	
   //var connectString = 'postgresql://postgresql:5432/';
+
+  //provide a sensible default for local development
+  var connectString = 'postgresql://127.0.0.1:5432/' + "sampledb";
+  //take advantage of openshift env vars when available:
+  if(process.env.OPENSHIFT_POSTGRESQL_DB_URL){
+    connectString = process.env.OPENSHIFT_POSTGRESQL_DB_URL + "sampledb";
+  }
 
 // 10-04-18 Работает с mongoURL: mongodb://userBYJ:EGJVTNgpHIAYTnCe@172.30.201.170:27017/sampledb
 // mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
