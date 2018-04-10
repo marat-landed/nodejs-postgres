@@ -35,7 +35,17 @@ var connectString = {
   //var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + mongoHost + ':' + mongoPort + '/' + mongoDb;
   //var mysqlString = 'mysql://' + mysqlUser + ':' + mysqlPass + '@' + mysqlHost + ':' + mysqlPort + '/' + mysqlDb;
   var connectString = 'postgresql://' + postgresqlUser + ':' + postgresqlPass + '@' + postgresqlHost + ':' + postgresqlPort + '/' + postgresqlDb;	
-  var connectString = 'postgresql://postgresql:5432/';
+  //var connectString = 'postgresql://postgresql:5432/';
+
+// 10-04-18 Работает с mongoURL: mongodb://userBYJ:EGJVTNgpHIAYTnCe@172.30.201.170:27017/sampledb
+// mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
+// mongoUser = process.env[mongoServiceName + '_USER'];
+// mongoPassword = process.env[mongoServiceName + '_PASSWORD'];
+// mongoHost = process.env[mongoServiceName + '_SERVICE_HOST'];
+// mongoPort = process.env[mongoServiceName + '_SERVICE_PORT'];
+// mongoDatabase = process.env[mongoServiceName + '_DATABASE'];
+
+
 console.log("connectString:");
 console.log(connectString);
 
@@ -60,7 +70,7 @@ mongoURL = mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' +  mongoPort 
 app.get('/',function(req,res){
   res.sendFile(__dirname + '/index.html');
 });
-
+/*
 app.get('/postgres', function(req, res) {
   var client = new Client(connectString);
   client.connect();
@@ -89,7 +99,7 @@ app.get('/postgres', function(req, res) {
     client.end();  
   });
 });
-
+*/
 app.listen(PORT, function () {
   console.log(`Express server is listening on ${PORT}`);
 });
