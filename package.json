@@ -4,9 +4,6 @@
   "description": "",
   "main": "app-local.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "scripts": {
     "start": "node app.js",
     "test": ""
   },
@@ -20,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/marat-landed/nodejs-postgres/issues"
   },
-  "homepage": "https://github.com/marat-landed/nodejs-postgres#readme"
+  "homepage": "https://github.com/marat-landed/nodejs-postgres#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2"
+  }
 }
