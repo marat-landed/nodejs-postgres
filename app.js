@@ -21,11 +21,11 @@ var connectString = {
 */
 
   //postgresql configuration
-  var postgresqlHost = process.env.OPENSHIFT_POSTGRESQL_DB_HOST || 'localhost'; 
-  var postgresqlPort = process.env.OPENSHIFT_POSTGRESQL_DB_PORT || 5432;
-  var postgresqlUser = process.env["POSTGRESQL_USER"] || 'postgres'; //postgresql username
-  var postgresqlPass = process.env["POSTGRESQL_PASSWORD"] || 'postgres'; //postgresql password
-  var postgresqlDb   = process.env["POSTGRESQL_DATABASE"] || 'postgres'; //postgresql database name	
+  ////var postgresqlHost = process.env.OPENSHIFT_POSTGRESQL_DB_HOST || 'localhost'; 
+  ////var postgresqlPort = process.env.OPENSHIFT_POSTGRESQL_DB_PORT || 5432;
+  ////var postgresqlUser = process.env["POSTGRESQL_USER"] || 'postgres'; //postgresql username
+  ////var postgresqlPass = process.env["POSTGRESQL_PASSWORD"] || 'postgres'; //postgresql password
+  ////var postgresqlDb   = process.env["POSTGRESQL_DATABASE"] || 'postgres'; //postgresql database name	
   // Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT/
   // echo $OPENSHIFT_POSTGRESQL_DB_PORT ----> 5432	
   // Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT	
@@ -42,15 +42,15 @@ var connectString = {
     database : process.env.OPENSHIFT_PG_DATABASE
   }
   */
-  var connectString = 'postgresql://' + postgresqlUser + ':' + postgresqlPass + '@' + postgresqlHost + ':' + postgresqlPort + '/' + postgresqlDb;	
+  ////var connectString = 'postgresql://' + postgresqlUser + ':' + postgresqlPass + '@' + postgresqlHost + ':' + postgresqlPort + '/' + postgresqlDb;	
   //var connectString = 'postgresql://postgresql:5432/';
 
   //provide a sensible default for local development
-  var connectString = 'postgresql://127.0.0.1:5432/' + "sampledb";
+ //// var connectString = 'postgresql://127.0.0.1:5432/' + "sampledb";
   //take advantage of openshift env vars when available:
-  if(process.env.OPENSHIFT_POSTGRESQL_DB_URL){
-    connectString = process.env.OPENSHIFT_POSTGRESQL_DB_URL + "sampledb";
-  }
+  ////if(process.env.OPENSHIFT_POSTGRESQL_DB_URL){
+    ////connectString = process.env.OPENSHIFT_POSTGRESQL_DB_URL + "sampledb";
+  ////}
 
 // 10-04-18 Работает с mongoURL: mongodb://userBYJ:EGJVTNgpHIAYTnCe@172.30.201.170:27017/sampledb
 // mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
@@ -61,8 +61,8 @@ var connectString = {
 // mongoDatabase = process.env[mongoServiceName + '_DATABASE'];
 
 
-console.log("connectString:");
-console.log(connectString);
+////console.log("connectString:");
+////console.log(connectString);
 
 /*
 const connectString = {
