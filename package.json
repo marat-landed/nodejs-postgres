@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/marat-landed/nodejs-postgres#readme",
   "dependencies": {
-    "body-parser": "^1.18.2"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "pg": "^7.4.1"
   }
 }
