@@ -2,7 +2,7 @@
   "name": "openshift-postgres",
   "version": "1.0.0",
   "description": "",
-  "main": "app-local.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": ""
